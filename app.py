@@ -18,7 +18,7 @@ while running:
     elif command == '2' or command == '2.' or command.lower() == 'view':
         if len(tasks) != 0:
             counter = 1
-            print('>>> Your task(s) are:')
+            print('>>> Your task(s) are: ')
             for task in tasks:
                 print(f'{counter}. {task.capitalize()}')
                 counter += 1
