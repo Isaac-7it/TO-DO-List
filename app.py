@@ -1,5 +1,3 @@
-from itertools import count
-
 running = True
 tasks = []
 
@@ -33,3 +31,9 @@ while running:
     elif command == '4' or command == '4.' or command.lower() == 'exit':
         print('Goodbye!')
         break
+
+'''
+- User should be able to keep on inputting task till 'done' is type
+- If user should input an empty task, he should be reprompted with the task attribute only not the whole interface
+- Users should be able to terminate or remove task using numbers 
+'''
