@@ -28,7 +28,8 @@ while running:
             print(f">>> Nothing to show! Use the 'add' command to add task(s)")
     elif command == '3' or command == '3.' or command.lower() == 'remove':
         task = input('Enter the task to remove: ').lower()
-        tasks.remove(task)
+        if task in tasks:
+            tasks.remove(task)
     elif command == '4' or command == '4.' or command.lower() == 'exit':
         print('Goodbye!')
         break
