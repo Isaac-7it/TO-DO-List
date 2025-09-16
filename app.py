@@ -18,18 +18,18 @@ while running:
     elif command == '2' or command == '2.' or command.lower() == 'view':
         if len(tasks) != 0:
             counter = 1
-            print('Your task(s) are:')
+            print('>>> Your task(s) are:')
             for task in tasks:
                 print(f'{counter}. {task.capitalize()}')
                 counter += 1
         else:
             print(f">>> Nothing to show! Use the 'add' command to add task(s)")
     elif command == '3' or command == '3.' or command.lower() == 'remove':
-        task = input('Enter the task to remove: ').lower()
+        task = input('>>> Enter the task to remove: ').lower()
         if task in tasks:
             tasks.remove(task)
     elif command == '4' or command == '4.' or command.lower() == 'exit':
-        print('Goodbye!')
+        print('>>> Goodbye!')
         break
 
 '''
