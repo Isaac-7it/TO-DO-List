@@ -9,12 +9,19 @@ print('''---TO-DO LIST---
 while running:
     command = input('>>> Choose an option: ')
     if command == '1' or command == '1.' or command.lower() == 'add':
-        task = input('>>> Enter a task: ').lower()
-        if task != '' and task not in tasks:
-            tasks.append(task)
-            print('>>> Task successfully added!')
-        elif task in tasks:
-            print('>>> Task has been added earlier!')
+        adding_task = True
+        while adding_task:
+            task = input('>>> Enter a task (Type done after adding task(s)): ').lower()
+            if task.lower() != 'done':
+                if task != '' and task not in tasks:
+                    tasks.append(task)
+                elif task in tasks:
+                    print('>>> Task has been added earlier!')
+                elif task == '':
+                    print('>>> Kindly input a task')
+            elif task.lower() == 'done':
+                print('>>> Task(s) successfully added!')
+                adding_task = False
     elif command == '2' or command == '2.' or command.lower() == 'view':
         if len(tasks) != 0:
             counter = 1
@@ -23,17 +30,30 @@ while running:
                 print(f'{counter}. {task.capitalize()}')
                 counter += 1
         else:
-            print(f">>> Nothing to show! Use the 'add' command to add task(s)")
+            print(f">>> Nothing to show! Use the 'add'3 command to add task(s)")
     elif command == '3' or command == '3.' or command.lower() == 'remove':
-        task = input('>>> Enter the task to remove: ').lower()
-        if task in tasks:
-            tasks.remove(task)
+        if len(tasks) > 0:
+            #task removed using the task itself
+            '''task = input('>>> Enter the task to remove: ').lower()
+            if task in tasks:
+                tasks.remove(task)
+                print('Task removed successfully!')
+            else:
+                print('>>> Task not found!')'''
+            # Task removed using task number
+            task_number = int(input('>>> Enter the task number to remove: '))
+            if 0 < task_number <= len(tasks):
+                tasks.remove(tasks[task_number - 1])
+                print('>>> Task removed successfully!')
+            else:
+                print('Error - Enter a valid task number')
+        else:
+            print(f">>> No added task! Use the 'add' command to add task(s)")
     elif command == '4' or command == '4.' or command.lower() == 'exit':
         print('>>> Goodbye!')
         break
 
 '''
 - User should be able to keep on inputting task till 'done' is type
-- If user should input an empty task, he should be reprompted with the task attribute only not the whole interface
-- Users should be able to terminate or remove task using numbers 
+- If user should input an empty task, he should be reprompted with the task attribute only not the whole interface 
 '''
