@@ -9,8 +9,8 @@ print('''---TO-DO LIST---
 while running:
     command = input('>>> Choose an option: ')
     if command == '1' or command == '1.' or command.lower() == 'add':
-        adding_task = True
         # Multi task adding
+        adding_task = True
         while adding_task:
             task = input('>>> Enter a task (Type done after adding task(s)): ').lower()
             if task.lower() != 'done':
